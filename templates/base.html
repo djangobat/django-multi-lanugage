@@ -7,14 +7,50 @@
     <title>{% block title %}{% endblock title %}</title>
     <link rel="shortcut icon" type="image/x-icon" href="{% static 'images/favicon.png' %}">
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
 </head>
+
 <body>
-    {% include "includes/header.html" %}
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light mb-3 bg-white border-bottom shadow-sm">
+            <a href="{% url 'home' %}" class="navbar-brand my-0 mr-md-auto font-weight-normal">
+                <img style="max-height: 50px" src="{% static 'images/logo-dark.png' %}" alt="">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse ml-4" id="navbarTogglerDemo03">
+                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{% url 'home' %}">Home</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link active" href="{% url 'about' %}">About</a>
+                    </li>
+                </ul>
+                {% comment %}
+                <div class="my-2 my-md-0">
+                    <div class="dropdown pr-3">
+                        <div class="d-flex align-items-center" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">
+                            <p class="font-small m-0">
+                                Language
+                            </p>
+                            <button class="btn btn-xs btn-circle btn-icon-only btn-soft dropdown-toggle mr-2" type="button" aria-haspopup="true" aria-expanded="false"></button>
+                        </div>
+                        <div class="dropdown-menu dropdown-menu-md" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="">English</a>
+                            <a class="dropdown-item" href="">Vietnamese</a>
+                        </div>
+                    </div>
+                </div>
+                {% endcomment %}
+            </div>
+        </nav>
+    </header>
     <div class="container">
         {% block main %}
         {% endblock main %}
     </div>
-    
     <script src="{% static 'js/jquery.min.js' %}"></script>
     <script src="{% static 'js/popper.min.js' %}"></script>
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
